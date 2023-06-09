@@ -11,7 +11,7 @@ public class CarScript : MonoBehaviour
     public InspectionAreaScript ias;
 
     Car car;
-    Person person;
+    Licence licence;
 
     void Start()
     {
@@ -54,15 +54,15 @@ public class CarScript : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void CheckPerson()
+    void CheckLicence()
     {
-        if(person != null)
+        if(licence != null)
         {
-            Debug.Log(person.name);
-            Debug.Log(person.surname);
-            Debug.Log(person.nationality);
-            Debug.Log(person.sex);
-            Debug.Log(person.portrait);
+            Debug.Log(licence.name);
+            Debug.Log(licence.surname);
+            Debug.Log(licence.nationality);
+            Debug.Log(licence.sex);
+            Debug.Log(licence.portrait);
         }
     }
 }
