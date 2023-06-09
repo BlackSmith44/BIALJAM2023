@@ -10,13 +10,14 @@ public class CarScript : MonoBehaviour
     public bool ready;
     public InspectionAreaScript ias;
 
+    Car car;
+    Person person;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         direction = -transform.forward.normalized * defaultVelocity;
         ready = false;
-
-
     }
 
     void FixedUpdate()
@@ -51,5 +52,17 @@ public class CarScript : MonoBehaviour
         QueueHandler qh = transform.parent.GetComponent<QueueHandler>();
         qh.queue.RemoveAt(0);
         Destroy(this.gameObject);
+    }
+
+    void CheckPerson()
+    {
+        if(person != null)
+        {
+            Debug.Log(person.name);
+            Debug.Log(person.surname);
+            Debug.Log(person.nationality);
+            Debug.Log(person.sex);
+            Debug.Log(person.portrait);
+        }
     }
 }
