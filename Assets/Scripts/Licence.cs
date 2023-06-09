@@ -33,14 +33,14 @@ public class Licence
     public static Licence GenerateLicence()
     {
         System.Random random = new System.Random();
-        int portrait = random.Next(1, 100);
+        int portrait = random.Next(1, 10);
         string name = GenerateRandomName();
         string surname = GenerateRandomSurname();
         int sex = random.Next(0, 2); // 0 for male, 1 for female
         string nationality = GenerateRandomNationality();
         string carNum = GenerateRandomCarNumber();
         int typeId = random.Next(1, 3);
-        bool isValid = random.Next(0, 2) == 1; // Randomly assign true or false for isValid
+        bool isValid = GenerateIsValid(0.75);
 
         return new Licence(portrait, name, surname, sex, nationality, carNum, typeId, isValid);
     }
@@ -154,5 +154,19 @@ public class Licence
 
         string result = letters.ToString() + digits.ToString();
         return result;
+    }
+    private static bool GenerateIsValid(double weight)
+    {
+        System.Random random = new System.Random();
+        double randomValue = random.NextDouble();
+
+        if (randomValue < weight)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
