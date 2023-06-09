@@ -13,10 +13,11 @@ public class Licence
     public int sex;
     public string nationality;
     public string carNum;
+    public int typeId;
     public bool isValid;
 
 
-    public Licence(int portrait, string name, string surname, int sex, string nationality, string carNum, bool isValid = true)
+    public Licence(int portrait, string name, string surname, int sex, string nationality, string carNum, int typeId, bool isValid = true)
     {
         this.portrait = portrait;
         this.name = name;
@@ -24,6 +25,7 @@ public class Licence
         this.sex = sex;
         this.nationality = nationality;
         this.carNum = carNum;
+        this.typeId = typeId;
         this.isValid = isValid;
     }
 
@@ -37,9 +39,10 @@ public class Licence
         int sex = random.Next(0, 2); // 0 for male, 1 for female
         string nationality = GenerateRandomNationality();
         string carNum = GenerateRandomCarNumber();
+        int typeId = random.Next(1, 3);
         bool isValid = random.Next(0, 2) == 1; // Randomly assign true or false for isValid
 
-        return new Licence(portrait, name, surname, sex, nationality, carNum, isValid);
+        return new Licence(portrait, name, surname, sex, nationality, carNum, typeId, isValid);
     }
 
     private static string GenerateRandomName()
@@ -130,7 +133,6 @@ public class Licence
 
         int index = random.Next(0, NationalityList.Count);
         return NationalityList[index];
-
     }
 
     private static string GenerateRandomCarNumber()
