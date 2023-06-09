@@ -12,23 +12,24 @@ public class CarScript : MonoBehaviour
     public List<GameObject> carModels;
     public Car car;
     public Licence licence;
+    public int carType;
 
      
 
     void Start()
     {
+        foreach (GameObject model in carModels)
+        {
+            model.SetActive(false);
+        }
         rb = GetComponent<Rigidbody>();
         direction = -transform.forward.normalized * defaultVelocity;
         ready = false;
-
         car = Car.GenerateCar();
-        for(int i=0; i < carModels.Count; i++)
-        {
-            if(i!=car.typeId)
-                carModels[i].SetActive(false);
-        }
-
         licence = car.licence;
+
+
+        carModels[car.typeId].SetActive(true);
 
         CheckCar();
         CheckLicence();
@@ -49,6 +50,7 @@ public class CarScript : MonoBehaviour
             g.gameObject.layer = this.gameObject.layer;
         }
 
+        carType = car.typeId;
     }
 
     public void InitDefaultVel()

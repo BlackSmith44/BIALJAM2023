@@ -43,7 +43,7 @@ public class Car
                 case 2:
                     int newTypeId = -1;
                     while (newTypeId == typeId)
-                        newTypeId = random.Next(0, 1);
+                        newTypeId = random.Next(0, 3);
                     typeId = newTypeId;
                     break;
 
