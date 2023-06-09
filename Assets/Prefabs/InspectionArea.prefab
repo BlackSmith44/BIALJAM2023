@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2375969427165034909}
   - component: {fileID: 3275038069865661399}
   - component: {fileID: 1736437138017994117}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: InspectionArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,3 +110,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 850afdde4abcb3f46b899bb465bdb647, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupied: 0

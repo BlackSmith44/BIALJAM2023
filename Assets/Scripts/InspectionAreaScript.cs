@@ -21,9 +21,28 @@ public class InspectionAreaScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.tag == "Car" && !occupied)
+        {
+            CarScript carScript = collision.gameObject.GetComponent<CarScript>();
+
+            collision.gameObject.layer = 10;
+            occupied = true;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
         if (collision.gameObject.tag == "Car")
         {
-            Debug.Log("Car");
+            
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Car")
+        {
+            //occupied = false;
         }
     }
 

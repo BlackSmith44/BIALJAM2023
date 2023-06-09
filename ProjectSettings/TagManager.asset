@@ -15,8 +15,8 @@ TagManager:
   - inqueue
   - outqueue
   - blockade
-  - Inspection
-  - 
+  - InspectionZone
+  - OnInspection
   - 
   - 
   - 

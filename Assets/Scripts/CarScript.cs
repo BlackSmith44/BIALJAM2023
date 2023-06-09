@@ -8,6 +8,7 @@ public class CarScript : MonoBehaviour
     public Vector3 direction;
     private float defaultVelocity = 0.15f;
     public bool ready;
+    public InspectionAreaScript ias;
 
     void Start()
     {
@@ -33,6 +34,10 @@ public class CarScript : MonoBehaviour
 
     public void ReadyToLeave()
     {
+        if(ias != null)
+        {
+            ias.occupied = false;
+        }
         this.gameObject.layer = 7;
         //Vector3 flyDirection = Camera.main.transform.position - transform.position;
         //rb.AddForce(flyDirection.normalized, ForceMode.Impulse);
