@@ -34,6 +34,8 @@ public class CarScript : MonoBehaviour
     public void ReadyToLeave()
     {
         this.gameObject.layer = 7;
+        //Vector3 flyDirection = Camera.main.transform.position - transform.position;
+        //rb.AddForce(flyDirection.normalized, ForceMode.Impulse);
         StartCoroutine(WaitAndPrint(5));
     }
 
