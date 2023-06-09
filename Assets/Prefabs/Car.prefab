@@ -84,8 +84,9 @@ MonoBehaviour:
   ias: {fileID: 0}
   carModels:
   - {fileID: 9024685930898652261}
-  - {fileID: 4966930419510438879}
+  - {fileID: 919132149155446097, guid: c8ee8c30f70d22c4e83c0422e00d5c2c, type: 3}
   - {fileID: 851635739661427539}
+  carType: 0
 --- !u!1001 &509179301628141058
 PrefabInstance:
   m_ObjectHideFlags: 0
