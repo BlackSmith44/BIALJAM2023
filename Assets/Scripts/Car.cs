@@ -37,7 +37,7 @@ public class Car
                 case 1:
                     int newPortrait = -1;
                     while (newPortrait == portrait)
-                        portrait = random.Next(1, 3);
+                        portrait = random.Next(1, 10);
                     portrait = newPortrait;
                     break;
                 case 2:
