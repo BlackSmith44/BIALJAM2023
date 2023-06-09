@@ -13,7 +13,7 @@ public class Car
     public Car(int typeId, Person person, string carNum, int[] carComponenetsl)
     {
         TypeId = typeId;
-        this.person = person;
+        this.person = Person.GeneratePerson(); ;
         this.carNum = carNum;
         this.carComponenetsl = InitCarComponents();
     }
