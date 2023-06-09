@@ -18,6 +18,12 @@ public class CarScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         direction = -transform.forward.normalized * defaultVelocity;
         ready = false;
+
+        car = Car.GenerateCar();
+        licence = car.licence;
+
+        CheckCar();
+        CheckLicence();
     }
 
     void FixedUpdate()
@@ -40,7 +46,8 @@ public class CarScript : MonoBehaviour
     {
         if(ias != null)
         {
-            ias.occupied = false;
+            ias.currCar = null;
+            ias.occupied = false; 
         }
         this.gameObject.layer = 7;
         StartCoroutine(WaitAndPrint(5));
@@ -58,11 +65,16 @@ public class CarScript : MonoBehaviour
     {
         if(licence != null)
         {
-            Debug.Log(licence.name);
-            Debug.Log(licence.surname);
-            Debug.Log(licence.nationality);
-            Debug.Log(licence.sex);
-            Debug.Log(licence.portrait);
+            Debug.Log("Person:"+"\n"+ licence.name + "\n" + licence.surname + "\n" + licence.nationality + "\n" + licence.sex + "\n" + licence.portrait + "\n" + licence.isValid + "\n" + licence.carNum);
+        }
+    }
+
+    void CheckCar()
+    {
+        if(car != null)
+        {
+            Debug.Log("Car:" + "\n" + car.carNum + "\n" + car.portrait + "\n" + car.typeId);
+
         }
     }
 }

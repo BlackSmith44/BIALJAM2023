@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class InspectionAreaScript : MonoBehaviour
@@ -7,6 +8,7 @@ public class InspectionAreaScript : MonoBehaviour
     // Start is called before the first frame update
 
     public bool occupied;
+    public GameObject currCar;
 
     void Start()
     {
@@ -27,6 +29,7 @@ public class InspectionAreaScript : MonoBehaviour
             CarScript carScript = collision.gameObject.GetComponent<CarScript>();
             carScript.ias = this.GetComponent<InspectionAreaScript>();
             collision.gameObject.layer = 10;
+            currCar = collision.gameObject;
 
         }
     }
@@ -39,6 +42,6 @@ public class InspectionAreaScript : MonoBehaviour
         }
     }
 
-
+    
 
 }

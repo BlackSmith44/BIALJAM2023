@@ -21,8 +21,9 @@ public class Car
         // this.carComponenetsl = InitCarComponents();
     }
 
-    private Car GenerateCar(Licence licence)
+    public static Car GenerateCar()
     {
+        Licence licence = Licence.GenerateLicence();
         int portrait = licence.portrait;
         int TypeId = licence.typeId;
         string carNum = licence.carNum;
