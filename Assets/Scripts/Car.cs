@@ -21,11 +21,15 @@ public class Car
         // this.carComponenetsl = InitCarComponents();
     }
 
+<<<<<<< Updated upstream
     public static Car GenerateCar()
+=======
+    private Car GenerateCar()
+>>>>>>> Stashed changes
     {
         Licence licence = Licence.GenerateLicence();
         int portrait = licence.portrait;
-        int TypeId = licence.typeId;
+        int typeId = licence.typeId;
         string carNum = licence.carNum;
 
         if(!licence.isValid)
@@ -35,19 +39,29 @@ public class Car
             switch (randomNumber)
             {
                 case 1:
-                    portrait = random.Next(1, 100);
+                    int newPortrait = -1;
+                    while (newPortrait == portrait)
+                        portrait = random.Next(1, 3);
+                    portrait = newPortrait;
                     break;
                 case 2:
-                    portrait = random.Next(1, 3);
+                    int newTypeId = -1;
+                    while (newTypeId == typeId)
+                        newTypeId = random.Next(1, 3);
+                    typeId = newTypeId;
                     break;
+
                 case 3:
-                    carNum = GenerateRandomCarNumber();
+                    string newCarNum = " ";
+                    while(newCarNum == carNum)
+                        carNum = GenerateRandomCarNumber();
+                    carNum = newCarNum;
                     break;
             }
         }
   
 
-        return new Car(licence, portrait, TypeId, carNum);
+        return new Car(licence, portrait, typeId, carNum);
 
     }
 
