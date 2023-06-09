@@ -13,6 +13,8 @@ public class CarScript : MonoBehaviour
     public Car car;
     public Licence licence;
 
+     
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,6 +43,12 @@ public class CarScript : MonoBehaviour
             ReadyToLeave();
             ready = false; ;
         }
+
+        foreach (Transform g in transform.GetComponentsInChildren<Transform>())
+        {
+            g.gameObject.layer = this.gameObject.layer;
+        }
+
     }
 
     public void InitDefaultVel()
