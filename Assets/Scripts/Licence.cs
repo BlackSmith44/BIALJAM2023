@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Text;
 using UnityEngine;
 
-public class Person 
+public class Licence 
 {
     public int portrait;
     public string name;
@@ -16,7 +16,7 @@ public class Person
     public bool isValid;
 
 
-    public Person(int portrait, string name, string surname, int sex, string nationality, string carNum, bool isValid = true)
+    public Licence(int portrait, string name, string surname, int sex, string nationality, string carNum, bool isValid = true)
     {
         this.portrait = portrait;
         this.name = name;
@@ -28,7 +28,7 @@ public class Person
     }
 
 
-    public static Person GeneratePerson()
+    public static Licence GenerateLicence()
     {
         System.Random random = new System.Random();
         int portrait = random.Next(1, 100);
@@ -39,7 +39,7 @@ public class Person
         string carNum = GenerateRandomCarNumber();
         bool isValid = random.Next(0, 2) == 1; // Randomly assign true or false for isValid
 
-        return new Person(portrait, name, surname, sex, nationality, carNum, isValid);
+        return new Licence(portrait, name, surname, sex, nationality, carNum, isValid);
     }
 
     private static string GenerateRandomName()
