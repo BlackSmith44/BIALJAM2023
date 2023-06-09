@@ -39,7 +39,7 @@ public class Licence
         int sex = random.Next(0, 2); // 0 for male, 1 for female
         string nationality = GenerateRandomNationality();
         string carNum = GenerateRandomCarNumber();
-        int typeId = random.Next(1, 3);
+        int typeId = random.Next(0, 1);
         bool isValid = GenerateIsValid(0.75);
 
         return new Licence(portrait, name, surname, sex, nationality, carNum, typeId, isValid);

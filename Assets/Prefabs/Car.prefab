@@ -81,6 +81,9 @@ MonoBehaviour:
   direction: {x: 0, y: 0, z: 0}
   ready: 0
   ias: {fileID: 0}
+  carModels:
+  - {fileID: 851635739661427539}
+  - {fileID: 9024685930898652261}
 --- !u!1001 &509179301628141058
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -250,7 +253,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2320f0a08ff57a49a506f3561679d2d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2320f0a08ff57a49a506f3561679d2d, type: 3}

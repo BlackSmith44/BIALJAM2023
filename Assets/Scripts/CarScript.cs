@@ -9,7 +9,7 @@ public class CarScript : MonoBehaviour
     private float defaultVelocity = 0.15f;
     public bool ready;
     public InspectionAreaScript ias;
-
+    public List<GameObject> carModels;
     public Car car;
     public Licence licence;
 
@@ -20,6 +20,12 @@ public class CarScript : MonoBehaviour
         ready = false;
 
         car = Car.GenerateCar();
+        for(int i=0; i < carModels.Count; i++)
+        {
+            if(i!=car.typeId)
+                carModels[i].SetActive(false);
+        }
+
         licence = car.licence;
 
         CheckCar();

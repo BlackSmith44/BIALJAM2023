@@ -43,7 +43,7 @@ public class Car
                 case 2:
                     int newTypeId = -1;
                     while (newTypeId == typeId)
-                        newTypeId = random.Next(1, 3);
+                        newTypeId = random.Next(0, 1);
                     typeId = newTypeId;
                     break;
 
@@ -81,6 +81,7 @@ public class Car
         string result = letters.ToString() + digits.ToString();
         return result;
     }
+
 
     public int[] InitCarComponents()
     {
