@@ -8,10 +8,11 @@ public class CounterScript : MonoBehaviour
     // Start is called before the first frame update
 
     TextMeshProUGUI text;
-    int counter;
+    public int counter;
 
     void Start()
     {
+        text = GetComponent<TextMeshProUGUI>();
         counter = 0;
         text.text = "";
     }

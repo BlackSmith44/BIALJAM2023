@@ -10,8 +10,8 @@ public class CarScript : MonoBehaviour
     public bool ready;
     public InspectionAreaScript ias;
 
-    Car car;
-    Licence licence;
+    public Car car;
+    public Licence licence;
 
     void Start()
     {
