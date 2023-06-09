@@ -80,6 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   direction: {x: 0, y: 0, z: 0}
   ready: 0
+  ias: {fileID: 0}
 --- !u!65 &2073129476209175715
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -159,7 +160,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: b2320f0a08ff57a49a506f3561679d2d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 997271c661e068f44a05945ced22f181, type: 2}
+      objectReference: {fileID: 6827473765020732249, guid: b2320f0a08ff57a49a506f3561679d2d, type: 3}
     - target: {fileID: 919132149155446097, guid: b2320f0a08ff57a49a506f3561679d2d, type: 3}
       propertyPath: m_Name
       value: Motorbike

@@ -15,6 +15,8 @@ public class CarScript : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         direction = -transform.forward.normalized * defaultVelocity;
         ready = false;
+
+
     }
 
     void FixedUpdate()
@@ -24,6 +26,7 @@ public class CarScript : MonoBehaviour
         if(ready)
         {
             ReadyToLeave();
+            ready = false; ;
         }
     }
 
@@ -39,8 +42,6 @@ public class CarScript : MonoBehaviour
             ias.occupied = false;
         }
         this.gameObject.layer = 7;
-        //Vector3 flyDirection = Camera.main.transform.position - transform.position;
-        //rb.AddForce(flyDirection.normalized, ForceMode.Impulse);
         StartCoroutine(WaitAndPrint(5));
     }
 

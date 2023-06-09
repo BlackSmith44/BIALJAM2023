@@ -19,22 +19,15 @@ public class InspectionAreaScript : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionStay(Collision collision)
     {
         if (collision.gameObject.tag == "Car" && !occupied)
         {
-            CarScript carScript = collision.gameObject.GetComponent<CarScript>();
-
-            collision.gameObject.layer = 10;
             occupied = true;
-        }
-    }
+            CarScript carScript = collision.gameObject.GetComponent<CarScript>();
+            carScript.ias = this.GetComponent<InspectionAreaScript>();
+            collision.gameObject.layer = 10;
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.tag == "Car")
-        {
-            
         }
     }
 
