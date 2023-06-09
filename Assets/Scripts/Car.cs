@@ -21,11 +21,7 @@ public class Car
         // this.carComponenetsl = InitCarComponents();
     }
 
-<<<<<<< Updated upstream
     public static Car GenerateCar()
-=======
-    private Car GenerateCar()
->>>>>>> Stashed changes
     {
         Licence licence = Licence.GenerateLicence();
         int portrait = licence.portrait;
