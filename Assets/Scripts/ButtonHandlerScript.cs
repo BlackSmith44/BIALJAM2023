@@ -29,11 +29,11 @@ public class ButtonHandlerScript : MonoBehaviour
             CarScript cs = ins.currCar.GetComponent<CarScript>();
             if (cs.licence.isValid)
             {
-                counterScript.counter++;
+                counterScript.totalScore += counterScript.counter;
             }
             else
             {
-                counterScript.counter--;
+                counterScript.totalScore -= counterScript.counter;
             }
 
             cs.ReadyToLeave();
@@ -81,6 +81,7 @@ public class ButtonHandlerScript : MonoBehaviour
 
     }
 
+<<<<<<< Updated upstream
     /*private void FlyAway()
     {
         while( Vector3.Distance(idCard.transform.position,endPoint.transform.position)>1f)
@@ -139,5 +140,7 @@ public class ButtonHandlerScript : MonoBehaviour
     {
         StartCoroutine(MoveUI(false));
     }
+=======
+>>>>>>> Stashed changes
 
 }
