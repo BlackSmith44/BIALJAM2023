@@ -54,6 +54,8 @@ public class LicenceScript : MonoBehaviour
 
         carTypeCheckList[l.typeId].SetActive(true);
         portrait.gameObject.SetActive(true);
+
+        nationality.text = CheckNatioanlity();
     }
 
 

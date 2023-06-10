@@ -15,6 +15,11 @@ public class CarScript : MonoBehaviour
     public Licence licence;
     public int carType;
     public LicenceScript ls;
+    public bool needSlow;
+
+    public float smoothTime;
+    Vector3 zeroVelocity = Vector3.zero;
+    private Vector3 smoothVelocity;
 
     public List<TextMeshProUGUI> licencePlates;
 
@@ -38,6 +43,8 @@ public class CarScript : MonoBehaviour
         licence = car.licence;
 
         carModels[car.typeId].SetActive(true);
+        needSlow = false;
+        smoothTime = 0.3f;
 
         CheckCar();
         CheckLicence();
@@ -46,7 +53,7 @@ public class CarScript : MonoBehaviour
     void FixedUpdate()
     {
         carModels[car.typeId].SetActive(true);
-        rb.AddForce (direction,ForceMode.Impulse);
+        rb.AddForce (direction,ForceMode.VelocityChange);
         Debug.DrawRay(transform.position,direction,Color.green);
         if(ready)
         {
@@ -62,6 +69,12 @@ public class CarScript : MonoBehaviour
         foreach (var item in licencePlates)
         {
             item.text = car.carNum;
+        }
+
+        if(needSlow)
+        {
+            Vector3 zeroVelocity = Vector3.zero;
+            rb.velocity = Vector3.SmoothDamp(rb.velocity, zeroVelocity, ref smoothVelocity, smoothTime);
         }
     }
 
