@@ -12,8 +12,15 @@ public class ButtonHandlerScript : MonoBehaviour
     public Button acceptButton;
     public Button declineButton;
 
-    public GameObject idCard;
-    public GameObject endPoint;
+    public RectTransform idCard;
+    
+    public float moveDuration = 1f;
+
+    public Vector2 initialPosition;
+    public Vector2 targetPosition;
+    private float positionThreshold = 5f;
+    public float distance;
+    public float elapsedTime;
 
     public void Accept()
     {   
@@ -32,6 +39,8 @@ public class ButtonHandlerScript : MonoBehaviour
             cs.ReadyToLeave();
             LockButtons();
         }
+
+        
     }
 
     public void Decline()
@@ -57,7 +66,8 @@ public class ButtonHandlerScript : MonoBehaviour
     {
         acceptButton.interactable = false;
         declineButton.interactable = false;
-        FlyAway();
+        //FlyAway();
+        StartCoroutine(MoveUI(true));
         StartCoroutine(WaitAndPrint(5));
     }
 
@@ -71,12 +81,63 @@ public class ButtonHandlerScript : MonoBehaviour
 
     }
 
-    private void FlyAway()
+    /*private void FlyAway()
     {
         while( Vector3.Distance(idCard.transform.position,endPoint.transform.position)>1f)
         {
             idCard.transform.position = Vector3.MoveTowards(idCard.transform.position, endPoint.transform.position,1);
         }
+    }*/
+
+    private System.Collections.IEnumerator MoveUI(bool flag)
+    {
+        elapsedTime = 0f;
+        while (elapsedTime < moveDuration)
+        {
+            if(flag)
+            {
+                float t = elapsedTime / moveDuration;
+                idCard.anchoredPosition = Vector2.Lerp(initialPosition, targetPosition, t);
+                elapsedTime += Time.deltaTime;
+
+                // Check if the UI component is close to the target position
+                distance = Vector2.Distance(idCard.anchoredPosition, targetPosition);
+                if (distance <= positionThreshold)
+                {
+                    idCard.anchoredPosition = targetPosition;
+                    break;
+                }
+
+                yield return null;
+                idCard.anchoredPosition = targetPosition;
+            }
+            else
+            {
+                float t = elapsedTime / moveDuration;
+                idCard.anchoredPosition = Vector2.Lerp(targetPosition, initialPosition, t);
+                elapsedTime += Time.deltaTime;
+
+                // Check if the UI component is close to the target position
+                distance = Vector2.Distance(idCard.anchoredPosition, initialPosition);
+                if (distance <= positionThreshold)
+                {
+                    idCard.anchoredPosition = initialPosition;
+                    break;
+                }
+
+                yield return null;
+                idCard.anchoredPosition = initialPosition;
+            }
+            
+
+        }
+
+        //idCard.anchoredPosition = targetPosition;
+    }
+
+    public void ComeBack()
+    {
+        StartCoroutine(MoveUI(false));
     }
 
 }

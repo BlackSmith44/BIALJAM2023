@@ -22,30 +22,40 @@ public class LicenceScript : MonoBehaviour
 
     public Image personOnLive;
 
+    public ButtonHandlerScript bh;
+
+    public bool flag;
+
     Car c;
     Licence l;
 
     // Start is called before the first frame update
     void Start()
     {
+        flag = true;
         ClearAll();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(cs != null)
+        if(cs != null && flag)
         {
             InitUIData();
+            flag = false;
         }
-        else
+        else if(cs == null)
         {
             ClearAll();
+            flag = true;
         }
     }
 
     private void InitUIData()
     {
+
+        bh.ComeBack();
+
         c = cs.car;
         l = c.licence;
         bulletedTextList[0].text = l.name;
