@@ -9,7 +9,8 @@ public class DayTimeScript : MonoBehaviour
     public float frameTime;
     public float step = 0.5f;
     public bool isDay = true;
-
+    CounterScript counter;
+    public GameObject panel;
     public int dayCounter = 0;
 
 
@@ -31,20 +32,13 @@ public class DayTimeScript : MonoBehaviour
             {
                 isDay = false;
                 dayCounter++;
+                panel.SetActive(true);
                 Sun.transform.eulerAngles = new Vector3(0, 0f, 0f);
+
             }
             frameTime = 0;
         }
 
-
-
-
-    }
-
-
-    public void Night()
-    {
-        Debug.Log("change to night");
     }
 
 }

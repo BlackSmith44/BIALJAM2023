@@ -32,8 +32,6 @@ public class CounterScript : MonoBehaviour
 
         }
 
-
-
         counterRounded = Mathf.RoundToInt(counter);
         text.text = counterRounded.ToString();
     }
