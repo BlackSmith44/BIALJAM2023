@@ -14,9 +14,13 @@ public class LicenceScript : MonoBehaviour
 
     public List<Sprite> portraitsList;
 
-    public TextMeshProUGUI nationality;
+    public Image nationality;
+
+    public List<Sprite> nationalityStamps;
 
     public CarScript cs;
+
+    public Image personOnLive;
 
     Car c;
     Licence l;
@@ -55,7 +59,11 @@ public class LicenceScript : MonoBehaviour
         carTypeCheckList[l.typeId].SetActive(true);
         portrait.gameObject.SetActive(true);
 
-        nationality.text = CheckNatioanlity();
+        nationality.sprite = CheckNatioanlity();
+        nationality.gameObject.SetActive(true);
+
+        personOnLive.sprite = portraitsList[c.portrait];
+        personOnLive.gameObject.SetActive(true);
     }
 
 
@@ -75,26 +83,26 @@ public class LicenceScript : MonoBehaviour
         }
     }
 
-    private string CheckNatioanlity()
+    private Sprite CheckNatioanlity()
     {
 
-        switch(l.nationality)
+        switch(c.nationality)
         {
             case "Poland":
                 {
-                    return "PL";
+                    return nationalityStamps[0];
                 }
             case "Sweden":
                 {
-                    return "S";
+                    return nationalityStamps[1];
                 }
-            case "Germany":
+            case "Czech":
                 {
-                    return "D";
+                    return nationalityStamps[2];
                 }
             case "Norway":
                 {
-                    return "N";
+                    return nationalityStamps[3];
                 }
 
         }
@@ -117,6 +125,8 @@ public class LicenceScript : MonoBehaviour
 
         portrait.gameObject.SetActive(false);
 
-        nationality.text = null;
+        nationality.gameObject.SetActive(false);
+
+        personOnLive.gameObject.SetActive(false);
     }
 }

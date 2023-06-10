@@ -11,13 +11,15 @@ public class Car
     //public Color color;
     public string carNum;
     public int[] carComponenetsl;
+    public string nationality;
 
-    public Car(Licence licence, int portrait, int typeId,  string carNum)
+    public Car(Licence licence, int portrait, int typeId,  string carNum, string nationality)
     {
         this.licence = licence;
         this.portrait = portrait;
         this.typeId = typeId;
         this.carNum = carNum;
+        this.nationality = nationality;
         // this.carComponenetsl = InitCarComponents();
     }
 
@@ -27,37 +29,45 @@ public class Car
         int portrait = licence.portrait;
         int typeId = licence.typeId;
         string carNum = licence.carNum;
+        string nationality = licence.nationality;
 
         if(!licence.isValid)
         {
             System.Random random = new System.Random();
-            int randomNumber = random.Next(1, 4);
+            int randomNumber = random.Next(1, 5);
             switch (randomNumber)
             {
                 case 1:
-                    int newPortrait = 0;
-                    while (newPortrait == portrait)
-                        portrait = random.Next(0, 3);
+                    int newPortrait = -1;
+                    while (newPortrait == portrait || newPortrait == -1)
+                        newPortrait = random.Next(0, 3);
                     portrait = newPortrait;
                     break;
                 case 2:
-                    int newTypeId = 0;
-                    while (newTypeId == typeId)
+                    int newTypeId = -1;
+                    while (newTypeId == typeId || newTypeId == -1)
                         newTypeId = random.Next(0, 3);
                     typeId = newTypeId;
                     break;
 
                 case 3:
-                    string newCarNum = " ";
-                    while(newCarNum == carNum)
-                        carNum = GenerateRandomCarNumber();
+                    string newCarNum = null;
+                    while(newCarNum == carNum || newCarNum == null)
+                        newCarNum = GenerateRandomCarNumber();
                     carNum = newCarNum;
+                    break;
+
+                case 4:
+                    string newNatioanlity = null;
+                    while (newNatioanlity == nationality || newNatioanlity == null)
+                        newNatioanlity = Licence.GenerateRandomNationality();
+                    nationality = newNatioanlity;
                     break;
             }
         }
   
 
-        return new Car(licence, portrait, typeId, carNum);
+        return new Car(licence, portrait, typeId, carNum, nationality);
 
     }
 

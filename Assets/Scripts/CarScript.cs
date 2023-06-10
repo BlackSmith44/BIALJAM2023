@@ -23,6 +23,8 @@ public class CarScript : MonoBehaviour
 
     public List<TextMeshProUGUI> licencePlates;
 
+    public bool isValid;
+
      
 
     void Start()
@@ -46,8 +48,8 @@ public class CarScript : MonoBehaviour
         needSlow = false;
         smoothTime = 0.3f;
 
-        CheckCar();
-        CheckLicence();
+        //CheckCar();
+        //CheckLicence();
     }
 
     void FixedUpdate()
@@ -76,6 +78,8 @@ public class CarScript : MonoBehaviour
             Vector3 zeroVelocity = Vector3.zero;
             rb.velocity = Vector3.SmoothDamp(rb.velocity, zeroVelocity, ref smoothVelocity, smoothTime);
         }
+
+        isValid = car.licence.isValid;
     }
 
     public void InitDefaultVel()

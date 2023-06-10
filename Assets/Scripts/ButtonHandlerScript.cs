@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,9 @@ public class ButtonHandlerScript : MonoBehaviour
     public CounterScript counterScript;
     public Button acceptButton;
     public Button declineButton;
+
+    public GameObject idCard;
+    public GameObject endPoint;
 
     public void Accept()
     {   
@@ -53,8 +57,8 @@ public class ButtonHandlerScript : MonoBehaviour
     {
         acceptButton.interactable = false;
         declineButton.interactable = false;
-
-        StartCoroutine(WaitAndPrint(2));
+        FlyAway();
+        StartCoroutine(WaitAndPrint(5));
     }
 
     IEnumerator WaitAndPrint(float waitTime)
@@ -65,6 +69,14 @@ public class ButtonHandlerScript : MonoBehaviour
             declineButton.interactable = true;
         }
 
+    }
+
+    private void FlyAway()
+    {
+        while( Vector3.Distance(idCard.transform.position,endPoint.transform.position)>1f)
+        {
+            idCard.transform.position = Vector3.MoveTowards(idCard.transform.position, endPoint.transform.position,1);
+        }
     }
 
 }

@@ -122,13 +122,13 @@ public class Licence
         return SurnameList[index];
     }
 
-    private static string GenerateRandomNationality()
+    public static string GenerateRandomNationality()
     {
         System.Random random = new System.Random();
         List<string> NationalityList = new List<string>(){
             "Poland",
             "Sweden",
-            "Germany",
+            "Czech",
             "Norway" };
 
         int index = random.Next(0, NationalityList.Count);
