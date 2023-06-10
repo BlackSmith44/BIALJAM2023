@@ -33,7 +33,7 @@ public class Licence
     public static Licence GenerateLicence()
     {
         System.Random random = new System.Random();
-        int portrait = random.Next(0, 4);
+        int portrait = random.Next(0, 10);
         if (portrait == 3)
         {
             return new Licence(3, "Olaf", "Rune", 0, "Sweden", GenerateRandomCarNumber(), 2, true);
