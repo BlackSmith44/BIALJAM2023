@@ -1460,6 +1460,7 @@ MonoBehaviour:
   frameTime: 0
   step: 0.5
   isDay: 1
+  panel: {fileID: 2028469023}
   dayCounter: 0
 --- !u!108 &954508541
 Light:
@@ -1633,7 +1634,7 @@ GameObject:
   - component: {fileID: 990271291}
   - component: {fileID: 990271292}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Event
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1679,6 +1680,8 @@ MonoBehaviour:
   carsapwner: {fileID: 1333853466}
   scores: []
   panel: {fileID: 2028469023}
+  bhs: {fileID: 1332535844}
+  ins: {fileID: 1282434523}
 --- !u!1 &1121203061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2702,7 +2705,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1599073951}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 990271292}
+        m_TargetAssemblyTypeName: ClearAllScript, Assembly-CSharp
+        m_MethodName: NextDay
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1599073951
 MonoBehaviour:
   m_ObjectHideFlags: 0
