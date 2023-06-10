@@ -17,7 +17,7 @@ public class CarSpawnerScript : MonoBehaviour
     public GameObject carPrefab;
     private void Start()
     {
-        curDurration = Random.Range(5, 15);
+        curDurration = Random.Range(5, 7);
     }
 
     private void Update()
@@ -34,7 +34,7 @@ public class CarSpawnerScript : MonoBehaviour
             counter++;          
             GameObject newObj =  Instantiate(carPrefab,queue);
             newObj.transform.position = this.transform.position;
-            curDurration = Random.Range(5, 15);
+            curDurration = Random.Range(5, 7);
             elapsedTime = 0;
             qh.queue.Add(newObj);
 

@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +12,11 @@ public class ButtonHandlerScript : MonoBehaviour
     public Button declineButton;
 
     public RectTransform idCard;
-    
+
     public float moveDuration = 1f;
+    public float prizeAmount = 30f;
+    public float penaltyAmount = 100f;
+
 
     public Vector2 initialPosition;
     public Vector2 targetPosition;
@@ -23,24 +25,24 @@ public class ButtonHandlerScript : MonoBehaviour
     public float elapsedTime;
 
     public void Accept()
-    {   
-        if(ins.currCar != null)
+    {
+        if (ins.currCar != null)
         {
             CarScript cs = ins.currCar.GetComponent<CarScript>();
             if (cs.licence.isValid)
             {
-                counterScript.counter++;
+                counterScript.counter += prizeAmount;
             }
             else
             {
-                counterScript.counter--;
+                counterScript.counter -= penaltyAmount;
             }
 
             cs.ReadyToLeave();
             LockButtons();
         }
 
-        
+
     }
 
     public void Decline()
@@ -50,11 +52,11 @@ public class ButtonHandlerScript : MonoBehaviour
             CarScript cs = ins.currCar.GetComponent<CarScript>();
             if (!cs.licence.isValid)
             {
-                counterScript.counter++;
+                counterScript.counter += prizeAmount;
             }
             else
             {
-                counterScript.counter--;
+                counterScript.counter -= penaltyAmount;
             }
 
             cs.ReadyToLeave();
