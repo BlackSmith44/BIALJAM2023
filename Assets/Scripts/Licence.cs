@@ -34,6 +34,10 @@ public class Licence
     {
         System.Random random = new System.Random();
         int portrait = random.Next(0, 4);
+        if (portrait == 3)
+        {
+            return new Licence(3, "Olaf", "Rune", 0, "Sweden", GenerateRandomCarNumber(), 2, true);
+        }
         string name = GenerateRandomName();
         string surname = GenerateRandomSurname();
         int sex = random.Next(0, 2); // 0 for male, 1 for female
@@ -129,7 +133,14 @@ public class Licence
             "Poland",
             "Sweden",
             "Czech",
-            "Norway" };
+            "Norway",
+            "Bulgaria",
+            "Belarus",
+            "Lithuania",
+            "Finland",
+            "Denmark",
+            "Croatia",
+        };
 
         int index = random.Next(0, NationalityList.Count);
         return NationalityList[index];

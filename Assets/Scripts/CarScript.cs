@@ -142,8 +142,13 @@ public class CarScript : MonoBehaviour
 
     private GameObject DrawVehicle(List<GameObject> list)
     {
-        GameObject vehicle = list[Random.Range(0, list.Count)];
-        
+        GameObject vehicle;
+        if (licence.portrait == 3)
+        {
+            vehicle = list[2];
+            return vehicle;
+        }
+        vehicle = list[Random.Range(0, list.Count)];
         return vehicle;
     }
 
