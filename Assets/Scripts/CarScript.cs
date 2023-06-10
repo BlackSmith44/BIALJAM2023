@@ -99,6 +99,7 @@ public class CarScript : MonoBehaviour
             }
         }
         this.gameObject.layer = 7;
+        needSlow = false;
         StartCoroutine(WaitAndPrint(5));
     }
 
