@@ -33,13 +33,13 @@ public class Licence
     public static Licence GenerateLicence()
     {
         System.Random random = new System.Random();
-        int portrait = random.Next(1, 10);
+        int portrait = random.Next(0, 3);
         string name = GenerateRandomName();
         string surname = GenerateRandomSurname();
         int sex = random.Next(0, 2); // 0 for male, 1 for female
         string nationality = GenerateRandomNationality();
         string carNum = GenerateRandomCarNumber();
-        int typeId = random.Next(0, 2);
+        int typeId = random.Next(0, 3);
         bool isValid = GenerateIsValid(0.75);
 
         return new Licence(portrait, name, surname, sex, nationality, carNum, typeId, isValid);

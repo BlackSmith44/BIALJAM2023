@@ -13,6 +13,7 @@ public class CarScript : MonoBehaviour
     public Car car;
     public Licence licence;
     public int carType;
+    public LicenceScript ls;
 
      
 
@@ -28,7 +29,6 @@ public class CarScript : MonoBehaviour
         car = Car.GenerateCar();
         licence = car.licence;
 
-
         carModels[car.typeId].SetActive(true);
 
         CheckCar();
@@ -37,6 +37,7 @@ public class CarScript : MonoBehaviour
 
     void FixedUpdate()
     {
+        carModels[car.typeId].SetActive(true);
         rb.AddForce (direction,ForceMode.Impulse);
         Debug.DrawRay(transform.position,direction,Color.green);
         if(ready)
@@ -50,7 +51,7 @@ public class CarScript : MonoBehaviour
             g.gameObject.layer = this.gameObject.layer;
         }
 
-        carType = car.typeId;
+        
     }
 
     public void InitDefaultVel()
@@ -64,6 +65,10 @@ public class CarScript : MonoBehaviour
         {
             ias.currCar = null;
             ias.occupied = false; 
+            if(ls != null)
+            {
+                ls.cs = null;
+            }
         }
         this.gameObject.layer = 7;
         StartCoroutine(WaitAndPrint(5));

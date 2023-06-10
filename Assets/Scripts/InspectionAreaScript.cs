@@ -9,6 +9,7 @@ public class InspectionAreaScript : MonoBehaviour
 
     public bool occupied;
     public GameObject currCar;
+    public LicenceScript ls;
 
     void Start()
     {
@@ -28,9 +29,10 @@ public class InspectionAreaScript : MonoBehaviour
             occupied = true;
             CarScript carScript = collision.gameObject.GetComponent<CarScript>();
             carScript.ias = this.GetComponent<InspectionAreaScript>();
+            carScript.ls = ls;
             collision.gameObject.layer = 10;
             currCar = collision.gameObject;
-
+            ls.cs = carScript;
         }
     }
 

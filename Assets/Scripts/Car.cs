@@ -35,13 +35,13 @@ public class Car
             switch (randomNumber)
             {
                 case 1:
-                    int newPortrait = -1;
+                    int newPortrait = 0;
                     while (newPortrait == portrait)
-                        portrait = random.Next(1, 10);
+                        portrait = random.Next(0, 3);
                     portrait = newPortrait;
                     break;
                 case 2:
-                    int newTypeId = -1;
+                    int newTypeId = 0;
                     while (newTypeId == typeId)
                         newTypeId = random.Next(0, 3);
                     typeId = newTypeId;
