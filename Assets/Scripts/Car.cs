@@ -26,6 +26,7 @@ public class Car
     public static Car GenerateCar()
     {
         Licence licence = Licence.GenerateLicence();
+
         int portrait = licence.portrait;
         int typeId = licence.typeId;
         string carNum = licence.carNum;

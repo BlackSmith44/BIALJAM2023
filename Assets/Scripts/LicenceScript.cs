@@ -122,7 +122,7 @@ public class LicenceScript : MonoBehaviour
         return null;
     }
 
-    private void ClearAll()
+    public void ClearAll()
     {
 
         foreach(var item in bulletedTextList)
