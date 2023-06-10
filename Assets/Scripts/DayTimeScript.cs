@@ -9,7 +9,6 @@ public class DayTimeScript : MonoBehaviour
     public float frameTime;
     public float step = 0.5f;
     public bool isDay = true;
-    CounterScript counter;
     public GameObject panel;
     public int dayCounter = 0;
 
