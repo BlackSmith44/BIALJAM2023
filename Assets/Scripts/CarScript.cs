@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CarScript : MonoBehaviour
@@ -15,6 +16,8 @@ public class CarScript : MonoBehaviour
     public int carType;
     public LicenceScript ls;
 
+    public List<TextMeshProUGUI> licencePlates;
+
      
 
     void Start()
@@ -22,6 +25,11 @@ public class CarScript : MonoBehaviour
         foreach (GameObject model in carModels)
         {
             model.SetActive(false);
+        }
+
+        foreach (var item in licencePlates)
+        {
+            item.text = null;
         }
         rb = GetComponent<Rigidbody>();
         direction = -transform.forward.normalized * defaultVelocity;
@@ -51,7 +59,10 @@ public class CarScript : MonoBehaviour
             g.gameObject.layer = this.gameObject.layer;
         }
 
-        
+        foreach (var item in licencePlates)
+        {
+            item.text = car.carNum;
+        }
     }
 
     public void InitDefaultVel()

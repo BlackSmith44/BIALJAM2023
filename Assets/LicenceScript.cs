@@ -14,9 +14,12 @@ public class LicenceScript : MonoBehaviour
 
     public List<Sprite> portraitsList;
 
-    private GameObject nationality;
+    public TextMeshProUGUI nationality;
 
     public CarScript cs;
+
+    Car c;
+    Licence l;
 
     // Start is called before the first frame update
     void Start()
@@ -39,8 +42,8 @@ public class LicenceScript : MonoBehaviour
 
     private void InitUIData()
     {
-        Car c = cs.car;
-        Licence l = c.licence;
+        c = cs.car;
+        l = c.licence;
         bulletedTextList[0].text = l.name;
         bulletedTextList[1].text = l.surname;
         bulletedTextList[2].text = CehckSex(l.sex);
@@ -50,6 +53,7 @@ public class LicenceScript : MonoBehaviour
         portrait.sprite = portraitsList[l.portrait];
 
         carTypeCheckList[l.typeId].SetActive(true);
+        portrait.gameObject.SetActive(true);
     }
 
 
@@ -71,6 +75,28 @@ public class LicenceScript : MonoBehaviour
 
     private string CheckNatioanlity()
     {
+
+        switch(l.nationality)
+        {
+            case "Poland":
+                {
+                    return "PL";
+                }
+            case "Sweden":
+                {
+                    return "S";
+                }
+            case "Germany":
+                {
+                    return "D";
+                }
+            case "Norway":
+                {
+                    return "N";
+                }
+
+        }
+
         return null;
     }
 
@@ -87,6 +113,8 @@ public class LicenceScript : MonoBehaviour
             item.SetActive(false);
         }
 
+        portrait.gameObject.SetActive(false);
 
+        nationality.text = null;
     }
 }
