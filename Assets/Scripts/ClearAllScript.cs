@@ -20,35 +20,51 @@ public class ClearAllScript : MonoBehaviour
 
     public GameObject panel;
 
+    public ButtonHandlerScript bhs;
+
+    public InspectionAreaScript ins;
+
     private void Start()
     {
-        panel.SetActive(true);
+        panel.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if(panel.activeSelf)
+        {
+            carsapwner.SetActive(false);
+        }
     }
 
     public void InitClear()
     {
-        foreach (Transform t in queue)
+
+        foreach (Transform child in queue)
         {
-            t.GetComponent<CarScript>().ReadyToLeave();
-            Destroy(t);
+            child.GetComponent<CarScript>().KillMe();
         }
 
         ls.ClearAll();
         
-        carsapwner.SetActive(false);
-
         ds.isDay = true;
 
         scores.Add(cs.counter);
 
         cs.counter = 100f;
+
+        bhs.LockButtons();
+
+        ins.occupied = false;
     }
 
     public void NextDay()
     {
+        InitClear();
         ds.isDay = true;
-        carsapwner.SetActive(true);
         panel.SetActive(false);
+        carsapwner.SetActive(true);
+        ds.dayCounter++;
     }
 
 }

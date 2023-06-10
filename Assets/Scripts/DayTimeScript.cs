@@ -31,11 +31,15 @@ public class DayTimeScript : MonoBehaviour
             {
                 isDay = false;
                 dayCounter++;
-                panel.SetActive(true);
+                
                 Sun.transform.eulerAngles = new Vector3(0, 0f, 0f);
 
             }
             frameTime = 0;
+        }
+        else if(!isDay)
+        {
+            panel.SetActive(true);
         }
 
     }

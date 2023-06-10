@@ -116,6 +116,30 @@ public class LicenceScript : MonoBehaviour
                 {
                     return nationalityStamps[3];
                 }
+            case "Bulgaria":
+                {
+                    return nationalityStamps[4];
+                }
+            case "Belarus":
+                {
+                    return nationalityStamps[5];
+                }
+            case "Lithuania":
+                {
+                    return nationalityStamps[6];
+                }
+            case "Finland":
+                {
+                    return nationalityStamps[7];
+                }
+            case "Denmark":
+                {
+                    return nationalityStamps[8];
+                }
+            case "Croatia":
+                {
+                    return nationalityStamps[9];
+                }
 
         }
 

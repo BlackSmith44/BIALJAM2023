@@ -152,4 +152,9 @@ public class CarScript : MonoBehaviour
         return vehicle;
     }
 
+    public void KillMe()
+    {
+        Destroy(this.gameObject);
+    }
+
 }
