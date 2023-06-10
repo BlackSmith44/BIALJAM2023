@@ -14,6 +14,8 @@ public class LicenceScript : MonoBehaviour
 
     public List<Sprite> portraitsList;
 
+    public List<Sprite> livePersons;
+
     public Image nationality;
 
     public List<Sprite> nationalityStamps;
@@ -72,7 +74,7 @@ public class LicenceScript : MonoBehaviour
         nationality.sprite = CheckNatioanlity();
         nationality.gameObject.SetActive(true);
 
-        personOnLive.sprite = portraitsList[c.portrait];
+        personOnLive.sprite = livePersons[c.portrait];
         personOnLive.gameObject.SetActive(true);
     }
 

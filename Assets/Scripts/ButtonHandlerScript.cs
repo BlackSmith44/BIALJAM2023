@@ -70,7 +70,7 @@ public class ButtonHandlerScript : MonoBehaviour
         declineButton.interactable = false;
         //FlyAway();
         StartCoroutine(MoveUI(true));
-        StartCoroutine(WaitAndPrint(5));
+        StartCoroutine(WaitAndPrint(3));
     }
 
     IEnumerator WaitAndPrint(float waitTime)

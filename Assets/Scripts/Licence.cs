@@ -33,7 +33,7 @@ public class Licence
     public static Licence GenerateLicence()
     {
         System.Random random = new System.Random();
-        int portrait = random.Next(0, 3);
+        int portrait = random.Next(0, 4);
         string name = GenerateRandomName();
         string surname = GenerateRandomSurname();
         int sex = random.Next(0, 2); // 0 for male, 1 for female

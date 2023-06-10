@@ -1105,9 +1105,15 @@ MonoBehaviour:
   - {fileID: 308645233}
   portrait: {fileID: 210123635}
   portraitsList:
+  - {fileID: 21300000, guid: 9a85470e1042ed64884014b58f3dd096, type: 3}
+  - {fileID: 21300000, guid: ac2a79114f762ac479777b29b12e9c9e, type: 3}
+  - {fileID: 21300000, guid: 605068a7d5d44284d99bf290972ff8b6, type: 3}
+  - {fileID: 21300000, guid: 788bbd68ec7c28749b655f3dc7e0df77, type: 3}
+  livePersons:
   - {fileID: 21300000, guid: 5c2e080c3b0f2614194ef70c68ee999e, type: 3}
   - {fileID: 21300000, guid: a3a318bb84ac55145a57b323e99b9724, type: 3}
   - {fileID: 21300000, guid: efca2fa8228caa74e903779f3fc9cfaf, type: 3}
+  - {fileID: 21300000, guid: f3552fcbffc382b43b2194bfa3ba1bfa, type: 3}
   nationality: {fileID: 1121203062}
   nationalityStamps:
   - {fileID: 21300000, guid: e06cbede2eea39e4a87bb3c6730b0dc0, type: 3}

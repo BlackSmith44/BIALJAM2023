@@ -5,12 +5,17 @@ using UnityEngine;
 
 public class CarScript : MonoBehaviour
 {
+    public List<GameObject> motors;
+    public List<GameObject> cars;
+    public List<GameObject> trucks;
+
+    public List<List<GameObject>> vehicleTypes;
+
     private Rigidbody rb;
     public Vector3 direction;
     private float defaultVelocity = 0.15f;
     public bool ready;
     public InspectionAreaScript ias;
-    public List<GameObject> carModels;
     public Car car;
     public Licence licence;
     public int carType;
@@ -29,9 +34,14 @@ public class CarScript : MonoBehaviour
 
     void Start()
     {
-        foreach (GameObject model in carModels)
+        vehicleTypes = new List<List<GameObject>> { motors, cars, trucks };
+
+        foreach (List<GameObject> model in vehicleTypes)
         {
-            model.SetActive(false);
+            foreach (GameObject type in model)
+            {
+                type.SetActive(false);
+            }
         }
 
         foreach (var item in licencePlates)
@@ -44,7 +54,9 @@ public class CarScript : MonoBehaviour
         car = Car.GenerateCar();
         licence = car.licence;
 
-        carModels[car.typeId].SetActive(true);
+        DrawVehicle(vehicleTypes[car.typeId]).SetActive(true);
+
+
         needSlow = false;
         smoothTime = 0.3f;
 
@@ -54,7 +66,7 @@ public class CarScript : MonoBehaviour
 
     void FixedUpdate()
     {
-        carModels[car.typeId].SetActive(true);
+        //DrawVehicle(vehicleTypes[car.typeId]).SetActive(true);
         rb.AddForce (direction,ForceMode.VelocityChange);
         Debug.DrawRay(transform.position,direction,Color.green);
         if(ready)
@@ -127,4 +139,12 @@ public class CarScript : MonoBehaviour
 
         }
     }
+
+    private GameObject DrawVehicle(List<GameObject> list)
+    {
+        GameObject vehicle = list[Random.Range(0, list.Count)];
+        
+        return vehicle;
+    }
+
 }
