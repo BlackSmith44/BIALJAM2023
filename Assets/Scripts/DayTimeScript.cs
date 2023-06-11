@@ -48,16 +48,16 @@ public class DayTimeScript : MonoBehaviour
         else if(!isDay)
         {
             panel.SetActive(true);
-            if (dayCounter == 5 && gameRuning==true)
-            {
-                using (StreamWriter writer = new StreamWriter(filePath, true))
-                {
-                    writer.Write(playerName.text.ToString() + " " + totalScore.ToString() + "\n");
-                    gameRuning = false;
-                }
-            }
         }
 
+    }
+    public void SaveScore()
+    {
+        using (StreamWriter writer = new StreamWriter(filePath, true))
+        {
+            writer.Write(playerName.text.ToString() + " " + totalScore.ToString() + "\n");
+            gameRuning = false;
+        }
     }
 
 }
