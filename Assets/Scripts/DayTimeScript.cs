@@ -53,10 +53,14 @@ public class DayTimeScript : MonoBehaviour
     }
     public void SaveScore()
     {
-        using (StreamWriter writer = new StreamWriter(filePath, true))
-        {
-            writer.Write(playerName.text.ToString() + " " + totalScore.ToString() + "\n");
-            gameRuning = false;
+        if (!playerName)
+        { 
+            using (StreamWriter writer = new StreamWriter(filePath, true))
+            {
+
+                writer.Write(playerName.text.ToString() + " " + totalScore.ToString() + "\n");
+                gameRuning = false;
+            }
         }
     }
 
