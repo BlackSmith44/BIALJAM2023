@@ -116,7 +116,7 @@ public class CarScript : MonoBehaviour
 
     public void ReadyToLeave(bool flag = false)
     {
-        audioSource.PlayOneShot(carStart);
+        
         this.GetComponent<AudioSource>().Play();
         if (ias != null)
         {

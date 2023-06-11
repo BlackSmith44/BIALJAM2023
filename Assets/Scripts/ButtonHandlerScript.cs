@@ -13,6 +13,9 @@ public class ButtonHandlerScript : MonoBehaviour
     public Button declineButton;
 
     public RectTransform idCard;
+    public AudioSource inspectionAudio;
+    public AudioClip leavingCarSound;
+    public AudioClip explosionCarSound;
 
     public float moveDuration = 1f;
     public float prizeAmount = 30f;
@@ -61,8 +64,10 @@ public class ButtonHandlerScript : MonoBehaviour
 
     public void Accept()
     {
+        
         if (ins.currCar != null)
         {
+            inspectionAudio.PlayOneShot(leavingCarSound);
             CarScript cs = ins.currCar.GetComponent<CarScript>();
             if (cs.licence.isValid)
             {
@@ -82,8 +87,10 @@ public class ButtonHandlerScript : MonoBehaviour
 
     public void Decline()
     {
+       
         if (ins.currCar != null)
-        {
+        { 
+            inspectionAudio.PlayOneShot(explosionCarSound);
             explosion = true;
             CarScript cs = ins.currCar.GetComponent<CarScript>();
             if (!cs.licence.isValid)
