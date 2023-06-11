@@ -11,6 +11,13 @@ public class CarScript : MonoBehaviour
 
     public List<List<GameObject>> vehicleTypes;
 
+    public AudioClip carHonk;
+    public AudioClip carStart;
+    public AudioClip carStop;
+    public AudioClip carRunning;
+    public AudioClip carYeet;
+    public AudioSource audioSource;
+
     private Rigidbody rb;
     public Vector3 direction;
     private float defaultVelocity = 0.15f;
@@ -34,6 +41,7 @@ public class CarScript : MonoBehaviour
 
     void Start()
     {
+        audioSource = this.GetComponent<AudioSource>();
         vehicleTypes = new List<List<GameObject>> { motors, cars, trucks };
 
         foreach (List<GameObject> model in vehicleTypes)
@@ -68,6 +76,13 @@ public class CarScript : MonoBehaviour
     {
         //DrawVehicle(vehicleTypes[car.typeId]).SetActive(true);
         rb.AddForce (direction,ForceMode.VelocityChange);
+
+        if (audioSource.isPlaying == false)
+        {
+            if (needSlow) audioSource.PlayOneShot(carStop);
+            else audioSource.PlayOneShot(carRunning);
+        }
+
         Debug.DrawRay(transform.position,direction,Color.green);
         if(ready)
         {
@@ -101,9 +116,9 @@ public class CarScript : MonoBehaviour
 
     public void ReadyToLeave(bool flag = false)
     {
-
-
-        if(ias != null)
+        audioSource.PlayOneShot(carStart);
+        this.GetComponent<AudioSource>().Play();
+        if (ias != null)
         {
             ias.currCar = null;
             ias.occupied = false; 
