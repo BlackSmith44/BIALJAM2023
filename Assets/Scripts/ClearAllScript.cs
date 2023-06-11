@@ -107,6 +107,10 @@ public class ClearAllScript : MonoBehaviour
         carsapwner.SetActive(true);
         if(ds.dayCounter == 5)
         {
+            if(ds.totalScore>0)
+            {
+
+            }
             YourName.SetActive(true);
             finalScore.text = ds.totalScore.ToString();
         }
