@@ -38,8 +38,6 @@ public class Car
         {
             System.Random random = new System.Random();
             int randomNumber = random.Next(1, 6);
-            Debug.Log(randomNumber);
-            randomNumber = 5;
             switch (randomNumber)
             {
                 case 1:
@@ -71,11 +69,15 @@ public class Car
                 case 5:
                     if (sex == 0)
                     {
+                        Debug.Log("Change 0 to 1");
                         sex = 1;
+                        Debug.Log(sex);
                     }
                     else
                     {
+                        Debug.Log("Change 1 to 0");
                         sex = 0;
+                        Debug.Log(sex);
                     }
                     break;
             }

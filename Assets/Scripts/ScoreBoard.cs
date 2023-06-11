@@ -17,7 +17,7 @@ public class ScoreBoard : MonoBehaviour
 
         foreach (string line in lines)
         {
-            string[] parts = line.Split(' ');
+            string[] parts = line.Split(';');
             if (parts.Length == 2)
             {
                 string name = parts[0];

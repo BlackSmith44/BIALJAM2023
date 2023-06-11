@@ -123,23 +123,6 @@ public class CarScript : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void CheckLicence()
-    {
-        if(licence != null)
-        {
-            Debug.Log("Person:"+"\n"+ licence.name + "\n" + licence.surname + "\n" + licence.nationality + "\n" + licence.sex + "\n" + licence.portrait + "\n" + licence.isValid + "\n" + licence.carNum);
-        }
-    }
-
-    void CheckCar()
-    {
-        if(car != null)
-        {
-            Debug.Log("Car:" + "\n" + car.carNum + "\n" + car.portrait + "\n" + car.typeId);
-
-        }
-    }
-
     private GameObject DrawVehicle(List<GameObject> list)
     {
         GameObject vehicle;

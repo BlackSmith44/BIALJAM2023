@@ -55,14 +55,18 @@ public class LicenceScript : MonoBehaviour
 
     private void InitUIData()
     {
+        
 
         bh.ComeBack();
 
         c = cs.car;
         l = c.licence;
+
+        Debug.Log(l.sex);
+
         bulletedTextList[0].text = l.name;
         bulletedTextList[1].text = l.surname;
-        bulletedTextList[2].text = CehckSex(l.sex);
+        bulletedTextList[2].text = CehckSex(c.sex);
         bulletedTextList[3].text = l.nationality;
         bulletedTextList[4].text = l.carNum;
 
@@ -164,5 +168,7 @@ public class LicenceScript : MonoBehaviour
         nationality.gameObject.SetActive(false);
 
         personOnLive.gameObject.SetActive(false);
+
+        
     }
 }

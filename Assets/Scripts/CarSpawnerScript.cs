@@ -9,6 +9,8 @@ public class CarSpawnerScript : MonoBehaviour
     public float elapsedTime;
     public float counter;
     private float curDurration;
+    private float maxCars = 10;
+    public float currNumberOfCars;
     //private bool ready = false;
 
     public Transform queue;
@@ -24,20 +26,23 @@ public class CarSpawnerScript : MonoBehaviour
     {
         QueueHandler qh = queue.GetComponent<QueueHandler>();
 
+        currNumberOfCars = queue.childCount;
+
         if (elapsedTime <= curDurration)
         {
             elapsedTime += Time.deltaTime;
         }
         else
         {
-            //ready = false;
-            counter++;          
-            GameObject newObj =  Instantiate(carPrefab,queue);
-            newObj.transform.position = this.transform.position;
-            curDurration = Random.Range(5, 7);
-            elapsedTime = 0;
-            qh.queue.Add(newObj);
-
+            if(currNumberOfCars<maxCars)
+            {
+                counter++;
+                GameObject newObj = Instantiate(carPrefab, queue);
+                newObj.transform.position = this.transform.position;
+                curDurration = Random.Range(5, 7);
+                elapsedTime = 0;
+                qh.queue.Add(newObj);
+            }
         }
     }
 }

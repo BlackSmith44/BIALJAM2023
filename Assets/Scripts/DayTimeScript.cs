@@ -60,7 +60,7 @@ public class DayTimeScript : MonoBehaviour
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
 
-                writer.Write(playerName.text.ToString() + " " + totalScore.ToString() + "\n");
+                writer.Write(playerName.text.ToString() + ";" + totalScore.ToString() + "\n");
                 gameRuning = false;
             }
         }

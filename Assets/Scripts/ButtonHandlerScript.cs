@@ -15,7 +15,7 @@ public class ButtonHandlerScript : MonoBehaviour
 
     public float moveDuration = 1f;
     public float prizeAmount = 30f;
-    public float penaltyAmount = 100f;
+    public float penaltyAmount = 50;
 
 
     public Vector2 initialPosition;

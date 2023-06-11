@@ -33,7 +33,7 @@ public class Licence
     public static Licence GenerateLicence()
     {
         System.Random random = new System.Random();
-        int[] males = { 0, 2, 5, 8, 9 };
+        int[] males = { 0, 2, 8, 9 };
         int portrait = random.Next(0, 10);
         int sex; // 0 for female, 1 male
         if (portrait == 3)
@@ -54,7 +54,7 @@ public class Licence
         string nationality = GenerateRandomNationality();
         string carNum = GenerateRandomCarNumber();
         int typeId = random.Next(0, 3);
-        bool isValid = GenerateIsValid(0.01);
+        bool isValid = GenerateIsValid(0.60);
 
         return new Licence(portrait, name, surname, sex, nationality, carNum, typeId, isValid);
     }
