@@ -99,8 +99,10 @@ public class CarScript : MonoBehaviour
         direction = -transform.forward.normalized * defaultVelocity;
     }
 
-    public void ReadyToLeave()
+    public void ReadyToLeave(bool flag = false)
     {
+
+
         if(ias != null)
         {
             ias.currCar = null;
@@ -109,6 +111,11 @@ public class CarScript : MonoBehaviour
             {
                 ls.cs = null;
             }
+        }
+        if (flag)
+        {
+            rb.freezeRotation = false;
+            rb.AddForce(transform.up.normalized*10, ForceMode.VelocityChange);
         }
         this.gameObject.layer = 7;
         needSlow = false;

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ButtonHandlerScript : MonoBehaviour
@@ -66,7 +67,7 @@ public class ButtonHandlerScript : MonoBehaviour
                 counterScript.counter -= penaltyAmount;
             }
 
-            cs.ReadyToLeave();
+            cs.ReadyToLeave(true);
             LockButtons();
         }
     }
@@ -157,6 +158,11 @@ public class ButtonHandlerScript : MonoBehaviour
     public void CloseBook()
     {
         book.SetActive(false);
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
 }
