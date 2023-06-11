@@ -18,6 +18,11 @@ public class ButtonHandlerScript : MonoBehaviour
     public float prizeAmount = 30f;
     public float penaltyAmount = 50;
 
+    public Sprite[] explosionSprites;
+    public GameObject explosionObject;
+    private int currentFrame = 0;
+    public bool explosion = false;
+    public float timer = 0f;
 
     public Vector2 initialPosition;
     public Vector2 targetPosition;
@@ -30,6 +35,28 @@ public class ButtonHandlerScript : MonoBehaviour
     private void Start()
     {
         book.SetActive(false);
+        explosionObject.GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    private void FixedUpdate()
+    {
+        if (explosion)
+        {
+            explosionObject.GetComponent<SpriteRenderer>().enabled = true;
+            timer += Time.deltaTime;
+            if (timer >= 0.1)
+            {
+                timer = 0;
+                currentFrame++;
+            }
+            explosionObject.GetComponent<SpriteRenderer>().sprite = explosionSprites[currentFrame];
+            if (currentFrame == 9)
+            {
+                explosion = false;
+                currentFrame = 0;
+                explosionObject.GetComponent<SpriteRenderer>().enabled = false;
+            }
+        }
     }
 
     public void Accept()
@@ -57,6 +84,7 @@ public class ButtonHandlerScript : MonoBehaviour
     {
         if (ins.currCar != null)
         {
+            explosion = true;
             CarScript cs = ins.currCar.GetComponent<CarScript>();
             if (!cs.licence.isValid)
             {
