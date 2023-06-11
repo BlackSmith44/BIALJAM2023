@@ -24,6 +24,13 @@ public class ButtonHandlerScript : MonoBehaviour
     public float distance;
     public float elapsedTime;
 
+    public GameObject book;
+
+    private void Start()
+    {
+        book.SetActive(false);
+    }
+
     public void Accept()
     {
         if (ins.currCar != null)
@@ -140,6 +147,16 @@ public class ButtonHandlerScript : MonoBehaviour
     public void ComeBack()
     {
         StartCoroutine(MoveUI(false));
+    }
+
+    public void OpenBook()
+    {
+        book.SetActive(true);
+    }
+
+    public void CloseBook()
+    {
+        book.SetActive(false);
     }
 
 }
