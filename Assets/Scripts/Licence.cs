@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 using UnityEngine;
-
+using System.Linq;
 public class Licence 
 {
     public int portrait;
@@ -33,18 +33,28 @@ public class Licence
     public static Licence GenerateLicence()
     {
         System.Random random = new System.Random();
+        int[] males = { 0, 2, 5, 8, 9 };
         int portrait = random.Next(0, 10);
+        int sex; // 0 for female, 1 male
         if (portrait == 3)
         {
-            return new Licence(3, "Olaf", "Rune", 0, "Sweden", GenerateRandomCarNumber(), 2, true);
+            return new Licence(3, "Olaf", "Rune", 1, "Sweden", GenerateRandomCarNumber(), 2, true);
+        }
+
+        else if (males.Contains(portrait))
+        {
+            sex = 1;
+        }
+        else
+        {
+            sex = 0;
         }
         string name = GenerateRandomName();
         string surname = GenerateRandomSurname();
-        int sex = random.Next(0, 2); // 0 for male, 1 for female
         string nationality = GenerateRandomNationality();
         string carNum = GenerateRandomCarNumber();
         int typeId = random.Next(0, 3);
-        bool isValid = GenerateIsValid(0.75);
+        bool isValid = GenerateIsValid(0.01);
 
         return new Licence(portrait, name, surname, sex, nationality, carNum, typeId, isValid);
     }

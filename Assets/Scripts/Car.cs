@@ -12,14 +12,16 @@ public class Car
     public string carNum;
     public int[] carComponenetsl;
     public string nationality;
+    public int sex;
 
-    public Car(Licence licence, int portrait, int typeId,  string carNum, string nationality)
+    public Car(Licence licence, int portrait, int typeId,  string carNum, string nationality, int sex)
     {
         this.licence = licence;
         this.portrait = portrait;
         this.typeId = typeId;
         this.carNum = carNum;
         this.nationality = nationality;
+        this.sex = sex;
         // this.carComponenetsl = InitCarComponents();
     }
 
@@ -31,11 +33,13 @@ public class Car
         int typeId = licence.typeId;
         string carNum = licence.carNum;
         string nationality = licence.nationality;
-
+        int sex = licence.sex;
         if(!licence.isValid)
         {
             System.Random random = new System.Random();
-            int randomNumber = random.Next(1, 5);
+            int randomNumber = random.Next(1, 6);
+            Debug.Log(randomNumber);
+            randomNumber = 5;
             switch (randomNumber)
             {
                 case 1:
@@ -64,11 +68,21 @@ public class Car
                         newNatioanlity = Licence.GenerateRandomNationality();
                     nationality = newNatioanlity;
                     break;
+                case 5:
+                    if (sex == 0)
+                    {
+                        sex = 1;
+                    }
+                    else
+                    {
+                        sex = 0;
+                    }
+                    break;
             }
         }
   
 
-        return new Car(licence, portrait, typeId, carNum, nationality);
+        return new Car(licence, portrait, typeId, carNum, nationality, sex);
 
     }
 
