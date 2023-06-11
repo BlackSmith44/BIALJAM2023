@@ -27,11 +27,13 @@ public class ClearAllScript : MonoBehaviour
 
     public List<GameObject> daysLeft;
 
-    public TextMeshProUGUI ScoreText;
+    public TextMeshProUGUI scoreText;
 
-    public GameObject YourName;
+    public GameObject yourName;
 
     public TextMeshProUGUI finalScore;
+
+    public GameObject gameOverPanel;
 
     
 
@@ -44,7 +46,9 @@ public class ClearAllScript : MonoBehaviour
             go.SetActive(false);
         }
 
-        YourName.SetActive(false);
+        yourName.SetActive(false);
+
+        gameOverPanel.SetActive(false);
     }
 
     private void Update()
@@ -56,7 +60,7 @@ public class ClearAllScript : MonoBehaviour
             carsapwner.SetActive(false);
         }
 
-        ScoreText.text = cs.counterRounded.ToString();
+        scoreText.text = cs.counterRounded.ToString();
 
         int i = ds.dayCounter;
 
@@ -96,7 +100,7 @@ public class ClearAllScript : MonoBehaviour
 
     public void OkAtTheEnd()
     {
-        ds.dayCounter++;
+        ds.SaveScore();
     }
 
     public void NextDay()
@@ -109,10 +113,14 @@ public class ClearAllScript : MonoBehaviour
         {
             if(ds.totalScore>0)
             {
-
+                yourName.SetActive(true);
+                finalScore.text = ds.totalScore.ToString();
             }
-            YourName.SetActive(true);
-            finalScore.text = ds.totalScore.ToString();
+            else
+            {
+                gameOverPanel.SetActive(true);
+            }
+
         }
         else
         {
