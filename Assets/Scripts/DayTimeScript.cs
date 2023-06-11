@@ -4,6 +4,8 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class DayTimeScript : MonoBehaviour
 {
     public GameObject Sun;
@@ -53,7 +55,7 @@ public class DayTimeScript : MonoBehaviour
     }
     public void SaveScore()
     {
-        if (!playerName)
+        if (playerName.text != null)
         { 
             using (StreamWriter writer = new StreamWriter(filePath, true))
             {
@@ -62,6 +64,8 @@ public class DayTimeScript : MonoBehaviour
                 gameRuning = false;
             }
         }
+
+        SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 
 }

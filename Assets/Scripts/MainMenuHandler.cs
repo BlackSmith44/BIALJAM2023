@@ -7,10 +7,12 @@ using UnityEngine.SceneManagement;
 public class MainMenuHandler : MonoBehaviour
 {
     public GameObject credits;
+    public GameObject score;
 
     private void Start()
     {
         credits.SetActive(false);
+        score.SetActive(false);
     }
 
     public void Exit()
@@ -33,4 +35,15 @@ public class MainMenuHandler : MonoBehaviour
     {
         credits.SetActive(false);
     }
+
+    public void OpenScore()
+    {
+        score.SetActive(true);
+    }
+
+    public void CloseScore()
+    {
+        score.SetActive(false);
+    }
+
 }

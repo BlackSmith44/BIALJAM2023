@@ -35,6 +35,8 @@ public class ClearAllScript : MonoBehaviour
 
     public GameObject gameOverPanel;
 
+    public TMP_InputField yourNameText;
+
     
 
     private void Start()
@@ -46,7 +48,9 @@ public class ClearAllScript : MonoBehaviour
             go.SetActive(false);
         }
 
+        yourNameText.text = "Your Name";
         yourName.SetActive(false);
+        
 
         gameOverPanel.SetActive(false);
     }
